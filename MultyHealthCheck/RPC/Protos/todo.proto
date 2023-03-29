@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+option csharp_namespace = "TodoClient";
+package todo;
+
+import "google/protobuf/empty.proto";
+
+service TodoRPC {
+	rpc HealthCheck (google.protobuf.Empty) returns (google.protobuf.Empty);
+	rpc SystemReport (google.protobuf.Empty) returns (SystemReportResult);
+}
+
+message SystemReportResult {  
+	  uint32 ErrorsCount = 1;
+	  uint32 TodosCount = 2;
+	}
